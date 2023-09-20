@@ -172,7 +172,6 @@ class AudioVis:
 
         fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(6, 8), facecolor='black')
  
-        # style for plotting line
         plt.style.use("ggplot")
         
         def animate(i):
@@ -224,13 +223,11 @@ class AudioVis:
     def combine(self):
         gif_clip = VideoFileClip('vis.gif')
 
-        # Replace 'your_audio_file.wav' with the path to your audio WAV file
         audio_clip = AudioFileClip(self.file_path)
 
         # Set the audio of the GIF to the audio from the WAV file
         final_clip = gif_clip.set_audio(audio_clip)
 
-        # Save the combined video as an mp4 file (you can change the filename and extension as needed)
         final_clip.write_videofile('combined_video.mp4', codec='libx264', audio_codec='aac')
         # final_clip.preview(fps=30)
     
